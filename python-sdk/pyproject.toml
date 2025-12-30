@@ -1,0 +1,94 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anchorai"
+version = "1.0.1"
+description = "Control what your AI agents store. Audit everything."
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{name = "Tasha Kim", email = "founders@getanchor.dev"}]
+keywords = [
+    "ai",
+    "agents",
+    "ai-agents",
+    "storage",
+    "policy",
+    "audit",
+    "governance",
+    "llm",
+    "langchain",
+    "crewai",
+    "openai",
+    "sdk",
+    "agent-memory",
+    "state",
+    "checkpoints"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = ["requests>=2.28.0", "pydantic>=2.0.0"]
+
+[project.optional-dependencies]
+# Framework integrations
+langchain = ["langchain>=0.1.0"]
+crewai = ["crewai>=0.1.0"]
+mem0 = ["mem0ai>=0.1.0"]
+all = ["langchain>=0.1.0", "crewai>=0.1.0", "mem0ai>=0.1.0"]
+
+# Development dependencies
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://getanchor.dev"
+Documentation = "https://docs.getanchor.dev"
+Repository = "https://github.com/anchorco/anchor-sdk"
+Issues = "https://github.com/anchorco/anchor-sdk/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["anchor*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers --tb=short --cov=anchor --cov-report=term-missing"
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "slow: Slow running tests",
+]

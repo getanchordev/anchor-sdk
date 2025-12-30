@@ -1,0 +1,68 @@
+{
+  "name": "anchorai",
+  "version": "1.0.0",
+  "description": "Control what your AI agents store. Audit everything.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "!dist/__tests__",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:unit": "jest --testPathIgnorePatterns=integration",
+    "test:integration": "jest client.integration.test.ts"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "ai-agents",
+    "storage",
+    "policy",
+    "audit",
+    "governance",
+    "llm",
+    "langchain",
+    "crewai",
+    "openai",
+    "sdk",
+    "agent-memory",
+    "state",
+    "checkpoints"
+  ],
+  "author": "Tasha Kim <founders@getanchor.dev>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anchorco/anchor-sdk.git",
+    "directory": "typescript-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/anchorco/anchor-sdk/issues"
+  },
+  "homepage": "https://getanchor.dev",
+  "dependencies": {},
+  "optionalDependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "ts-jest": "^29.1.0"
+  },
+  "peerDependencies": {
+    "@types/node": "^18.0.0 || ^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
